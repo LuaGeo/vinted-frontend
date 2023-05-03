@@ -38,11 +38,12 @@ header .buttonsContainer button:last-child {
   background-color: #007580;
 }
 
-hero {
-  width: 100vw;
+.hero {
   height: 340px;
+  border: 1px solid red;
 }
 
-hero > img {
-  width: 500px;
+.hero > img {
+  width: 1000px;
+  object-fit: cover;
 }

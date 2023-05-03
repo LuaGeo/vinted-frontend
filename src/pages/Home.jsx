@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 const Home = ({ hero }) => {
   return (
-    <div>
-      <hero>
+    <>
+      <div className="hero">
         <img src={hero} alt="" />
-      </hero>
+      </div>
       <main>
         <h1>Je suis sur la HOME</h1>
         <Link to="/offer">Naviguer vers Offer</Link>
       </main>
-    </div>
+    </>
   );
 };
 
