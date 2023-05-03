@@ -1,0 +1,48 @@
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+}
+
+header {
+  border-bottom: 1px solid lightgray;
+}
+
+header .container {
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+}
+
+header img {
+  width: 73px;
+}
+
+header .buttonsContainer {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+header button {
+  width: 115px;
+  height: 28px;
+  color: #007580;
+  border: 1px solid #007580;
+  background-color: #fff;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+header .buttonsContainer button:last-child {
+  color: #fff;
+  background-color: #007580;
+}
+
+hero {
+  width: 100vw;
+  height: 340px;
+}
+
+hero > img {
+  width: 500px;
+}
