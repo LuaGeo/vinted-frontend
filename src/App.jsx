@@ -10,6 +10,7 @@ import Header from "./components/Header";
 // pages //
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
+import Signup from "./pages/Signup";
 
 // imgs //
 import logo from "./assets/imgs/logo1.svg";
@@ -57,6 +58,7 @@ function App() {
           }
         />
         <Route path="/offer/:id" element={<Offer data={data} />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </Router>
   );

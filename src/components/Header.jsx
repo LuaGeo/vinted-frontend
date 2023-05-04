@@ -1,5 +1,7 @@
 import { Link } from "react-router-dom";
 
+import Signup from "../pages/Signup";
+
 const Header = ({ logo }) => {
   return (
     <header>
@@ -10,7 +12,10 @@ const Header = ({ logo }) => {
 
         {/* </Link> */}
         <div className="buttonsContainer">
-          <button>S'inscrire</button>
+          <Link to="/signup">
+            <button>S'inscrire</button>
+          </Link>
+
           <button>Se connecter</button>
           <button className="sell">Vends tes articles</button>
         </div>
