@@ -1,11 +1,56 @@
-import { Link } from "react-router-dom";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
 
 const Offer = () => {
-  return (
-    <div>
-      <h1>Je suis sur la page OFFER</h1>
+  const { id } = useParams();
 
-      <Link to="/">Naviguer vers Home</Link>
+  const [offer, setOffer] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    try {
+      const fetchOffer = async () => {
+        const response = await axios.get(
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        console.log(id);
+        setOffer(response.data);
+        setIsLoading(false);
+      };
+      fetchOffer();
+    } catch (error) {
+      console.log(error);
+    }
+  }, []);
+
+  return isLoading ? (
+    <span>Loading...</span>
+  ) : (
+    <div className="offerPage">
+      <div className="offerContainer container">
+        <img
+          src={offer.product_image.secure_url}
+          alt={offer.product_description}
+        />
+        <div>
+          <div className="offerInfosContainer">
+            <h2>{offer.product_price} €</h2>
+            <div>
+              <ul>
+                {offer.product_details.map((detail, index) => {
+                  return <li key={index}>{Object.keys(detail)}</li>;
+                })}
+              </ul>
+              <ul>
+                {offer.product_details.map((detail, index) => {
+                  return <li key={index}>{detail[Object.keys(detail)]}</li>;
+                })}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

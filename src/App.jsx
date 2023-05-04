@@ -1,7 +1,7 @@
 import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // components //
 
@@ -14,7 +14,7 @@ import Offer from "./pages/Offer";
 // imgs //
 import logo from "./assets/imgs/logo1.svg";
 import hero from "./assets/imgs/banner-hero.jpg";
-import { useEffect } from "react";
+import ripHero from "./assets/imgs/rip-hero.svg";
 
 function App() {
   const [data, setData] = useState({});
@@ -52,10 +52,11 @@ function App() {
               data={data}
               offers={offers}
               setOffers={setOffers}
+              ripHero={ripHero}
             />
           }
         />
-        <Route path="/offer" element={<Offer />} />
+        <Route path="/offer/:id" element={<Offer data={data} />} />
       </Routes>
     </Router>
   );

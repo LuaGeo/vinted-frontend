@@ -2,7 +2,8 @@ import { Link } from "react-router-dom";
 
 const Offers = ({ offer }) => {
   return (
-    <Link to="/offer">
+    <Link to={`/offer/${offer._id}`}>
+      {/* to={`/character/${character.id}`  Offer=Character} */}
       <article>
         <div className="owner">
           {offer.owner.account.avatar && (
@@ -15,7 +16,7 @@ const Offers = ({ offer }) => {
           alt={offer.product_description}
         />
         <div className="infosContainer">
-          <h3>{offer.product_price} €</h3>
+          <h4>{offer.product_price} €</h4>
           {offer.product_details.map((details, index) => {
             return (
               <div key={index}>
