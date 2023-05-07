@@ -47,35 +47,46 @@ const Signup = () => {
   //mettre le try catch de register ici et ajouter handlesubmit dans la balise form (au lieu de dans le button)
 
   return (
-    <form className="container" onSubmit={handleSubmit}>
-      <label htmlFor="username">Username : </label>
+    <form className="container formContainer" onSubmit={handleSubmit}>
+      <h2>S'inscrire</h2>
       <input
         onChange={(event) => setUsername(event.target.value)}
         type="text"
         value={username}
-        placeholder="Toto"
+        placeholder="Nom d'utilisateur"
       />
-      <label htmlFor="email">Email : </label>
       <input
         onChange={(event) => setEmail(event.target.value)}
         type="email"
         value={email}
-        placeholder="email@email.com"
+        placeholder="Email"
       />
-      <label htmlFor="password">Password : </label>
       <input
         onChange={(event) => setPassword(event.target.value)}
         type="password"
         value={password}
-        placeholder="********"
+        placeholder="Mot de passe"
       />
-      <label htmlFor="newsletter">Newsletter : </label>
-      <input
-        onChange={() => setNewsLetter(!newsletter)}
-        type="checkbox"
-        value={newsletter}
-      />
-      <button type="submit">Register</button>
+      <div>
+        <div className="checkboxContainer">
+          <input
+            className="checkbox"
+            onChange={() => setNewsLetter(!newsletter)}
+            type="checkbox"
+            value={newsletter}
+          />
+          <label htmlFor="newsletter">S'inscrire à notre newsletter </label>
+        </div>
+        <p>
+          En m'inscrivant je confirme avoir lu et accepté les Termes &
+          Conditions et Politique de Confidentialité de Vinted. Je confirme
+          avoir au moins 18 ans.
+        </p>
+      </div>
+
+      <button className="buttonsPages" type="submit">
+        S'inscrire
+      </button>
     </form>
   );
 };

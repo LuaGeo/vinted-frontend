@@ -12,12 +12,16 @@ const Header = ({ logo }) => {
 
         {/* </Link> */}
         <div className="buttonsContainer">
-          <Link to="/signup">
-            <button>S'inscrire</button>
-          </Link>
+          <div className="buttonsConnection">
+            <Link to="/signup">
+              <button>S'inscrire</button>
+            </Link>
 
-          <button>Se connecter</button>
-          <button className="sell">Vends tes articles</button>
+            <Link to="/login">
+              <button>Se connecter</button>
+            </Link>
+          </div>
+          <button className="sellButton">Vends tes articles</button>
         </div>
       </div>
     </header>

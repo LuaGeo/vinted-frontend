@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+
 //import cookies ici
 
 // components //
@@ -12,6 +13,7 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
+import Login from "./pages/Login";
 
 // imgs //
 import logo from "./assets/imgs/logo1.svg";
@@ -64,6 +66,7 @@ function App() {
         />
         <Route path="/offer/:id" element={<Offer data={data} />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Router>
   );

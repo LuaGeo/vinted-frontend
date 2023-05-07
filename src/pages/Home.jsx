@@ -6,7 +6,11 @@ const Home = ({ hero, data, ripHero }) => {
   return (
     <>
       <div className="hero">
-        <img src={hero} alt="couple qui range des vêtements sur un lit" />
+        <img
+          className="imgHero"
+          src={hero}
+          alt="couple qui range des vêtements sur un lit"
+        />
         <img className="ripHero" src={ripHero} alt="partie de photo déchirée" />
       </div>
       <main>

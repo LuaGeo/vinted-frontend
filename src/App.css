@@ -1,11 +1,14 @@
+@import url("https://fonts.cdnfonts.com/css/maison-neue?styles=49784,49798,49804,49800,49802,49786,49782,49796,49780");
+
 * {
-  font-family: sans-serif;
+  font-family: "Maison Neue", sans-serif;
 }
 
 .container {
   max-width: 1240px;
   margin: 0 auto;
   display: flex;
+  font-family: "Maison Neue", sans-serif;
 }
 
 header {
@@ -16,16 +19,23 @@ header .container {
   height: 60px;
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 header img {
   width: 73px;
+  object-fit: center;
 }
 
 header .buttonsContainer {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 30px;
+}
+
+header .buttonsContainer > div {
+  display: flex;
+  gap: 5px;
 }
 
 header button {
@@ -38,7 +48,7 @@ header button {
   font-size: 12px;
 }
 
-header .buttonsContainer button:last-child {
+.sellButton {
   color: #fff;
   background-color: #007580;
 }
@@ -49,17 +59,19 @@ header .buttonsContainer button:last-child {
   position: relative;
 }
 
-.hero > img {
+.imgHero {
   width: 100%;
   height: 430px;
   object-fit: cover;
   object-position: center;
+  position: absolute;
 }
 
-.ripHero {
-  border: 10px red solid;
+.hero .ripHero {
+  width: 50%;
   position: absolute;
   bottom: 0px;
+  right: 0px;
 }
 
 .offersContainer {
@@ -130,8 +142,11 @@ h4 {
 }
 
 h2 {
-  font-family: sans-serif;
   font-size: 24px;
+}
+
+h3 {
+  font-size: 16px;
 }
 
 .offerInfosContainer {
@@ -154,9 +169,63 @@ ul {
 
 /* ---Signup page--- */
 
-form {
+.formContainer {
   width: 300px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+  margin-top: 58px;
+}
+
+.formContainer > input {
+  width: 100%;
+  height: 51px;
+  border-style: none;
+  border-bottom: 1px solid #fcced3;
+}
+
+form > div {
+  margin-top: 46px;
+  display: flex;
+
+  align-items: center;
+  gap: 20px;
+}
+
+.formContainer > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.formContainer .checkboxContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+
+.formContainer .checkbox {
+  -webkit-transform: scale(2);
+  cursor: pointer;
+}
+
+label {
+  font-size: 16px;
+  font-family: "Maison Neue", sans-serif;
+}
+
+.formContainer button {
+  width: 100%;
+  height: 45px;
+  margin-top: 45px;
+  background-color: #007580;
+  color: #fff;
+  border-style: none;
+  border-radius: 5px;
+}
+
+.formContainer > div p {
+  line-height: 20px;
+  text-align: justify;
 }
