@@ -2,6 +2,7 @@ import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+//import cookies ici
 
 // components //
 
@@ -22,6 +23,10 @@ function App() {
   const [isLoading, setIsLoading] = useState(true);
 
   const [offers, setOffers] = useState([]);
+
+  // const [token ici...]
+  // + handleTOken
+  //chercher où il a mis le fetchdata etc qui sont ci-dessous :
 
   const fetchData = async () => {
     try {

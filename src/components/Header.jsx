@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import Signup from "../pages/Signup";
+//import cookies ici
 
 const Header = ({ logo }) => {
   return (
