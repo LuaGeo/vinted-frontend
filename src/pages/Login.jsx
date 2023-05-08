@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,8 +28,11 @@ const Login = ({ handleToken }) => {
           }
           // console.log(response.data);
         } catch (error) {
-          console.log(error.message);
-          console.log(error.response.data);
+          if (error.message === "Request failed with status code 401") {
+            setErrorMessage("Mot de passe incorrect");
+          }
+          // console.log(error.message);
+          // console.log(error.response.data);
         }
       }}
     >
@@ -49,6 +53,7 @@ const Login = ({ handleToken }) => {
         placeholder="Mot de passe"
       />
       <button type="submit">Se connecter</button>
+      {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
     </form>
   );
 };

@@ -84,17 +84,15 @@ const Signup = ({ handleToken }) => {
         <button className="buttonsPages" type="submit">
           S'inscrire
         </button>
+        {errorMessage && (
+          <p className="container" style={{ color: "red", width: "100" }}>
+            {errorMessage}
+          </p>
+        )}
+        <Link to="/login" className="container">
+          Tu as déjà un compte ? Connecte-toi !
+        </Link>
       </form>
-      {errorMessage && (
-        <p className="container" style={{ color: "red", width: "100" }}>
-          {" "}
-          //refaire dans App.css
-          {errorMessage}
-        </p>
-      )}
-      <Link to="/login" className="container">
-        Tu as déjà un compte ? Connecte-toi !
-      </Link>
     </div>
   );
 };

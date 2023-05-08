@@ -48,6 +48,16 @@ const Offer = () => {
                 })}
               </ul>
             </div>
+
+            <div>
+              <h3>{offer.product_name}</h3>
+              <h3>{offer.product_description}</h3>
+              <div>
+                <img src={offer.owner.account.avatar.secure_url} alt="avatar" />
+                <h3>{offer.owner.account.username}</h3>
+              </div>
+              <button>Acheter</button>
+            </div>
           </div>
         </div>
       </div>

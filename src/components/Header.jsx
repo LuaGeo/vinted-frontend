@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 //import cookies ici
 
 const Header = ({ logo, handleToken, token, search, setSearch }) => {
+  const navigate = useNavigate();
   return (
     <header>
       <div className="container">
@@ -22,7 +24,8 @@ const Header = ({ logo, handleToken, token, search, setSearch }) => {
           {token ? (
             <button
               onClick={() => {
-                handleToken(null); //comment ça marche?
+                handleToken(null);
+                navigate("/"); //comment ça marche?
               }}
             >
               Déconnexion

@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
@@ -11,6 +12,8 @@ const Publish = ({ token }) => {
   const [condition, setCondition] = useState("");
   const [city, setCity] = useState("");
   const [price, setPrice] = useState("");
+
+  const navigate = useNavigate();
 
   const handleSubmitNewArticle = async (event) => {
     event.preventDefault();
@@ -36,6 +39,7 @@ const Publish = ({ token }) => {
           },
         }
       );
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }
@@ -45,14 +49,14 @@ const Publish = ({ token }) => {
       <div className="container publishContainer">
         <h2>Vends ton article</h2>
         <form onSubmit={handleSubmitNewArticle}>
-          <section>
+          <div className="publishPictureContainer">
             <input
               type="file"
               onChange={(event) => {
                 setPicture(event.target.files[0]);
               }}
             />
-          </section>
+          </div>
 
           <section>
             <div>
@@ -138,18 +142,27 @@ const Publish = ({ token }) => {
           </section>
 
           <section>
-            <h3>Prix</h3>
-            <input
-              type="text"
-              placeholder="0,00 €"
-              value={price}
-              onChange={(event) => {
-                setPrice(event.target.value);
-              }}
-            />
+            <div>
+              <h3>Prix</h3>
+              <div>
+                <input
+                  type="text"
+                  placeholder="0,00 €"
+                  value={price}
+                  onChange={(event) => {
+                    setPrice(event.target.value);
+                  }}
+                />
+                <div>
+                  <input className="publishCheckBox" type="checkBox" />
+                  <h4>Je suis intéressé(e) par les échanges</h4>
+                </div>
+              </div>
+            </div>
           </section>
-
-          <button>Ajouter</button>
+          <div className="publishButton">
+            <button>Ajouter</button>
+          </div>
         </form>
       </div>
     </div>
