@@ -38,6 +38,10 @@ header .buttonsContainer > div {
   gap: 5px;
 }
 
+button {
+  cursor: pointer;
+}
+
 header button {
   width: 115px;
   height: 28px;
@@ -182,6 +186,7 @@ ul {
   width: 100%;
   height: 51px;
   border-style: none;
+  outline: none;
   border-bottom: 1px solid #fcced3;
 }
 

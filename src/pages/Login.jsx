@@ -1,24 +1,12 @@
 import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import Cookies from "js-cookie";
 
-const Login = () => {
+const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [token, setToken] = useState(Cookies.get("vinted-token") || null);
 
   const navigate = useNavigate();
-
-  const handleToken = (token) => {
-    if (token) {
-      setToken(token);
-      Cookies.set("vinted-token", token, { expires: 7 });
-    } else {
-      setToken(null); // pk?
-      Cookies.remove("vinted-token");
-    }
-  };
 
   return (
     <form
