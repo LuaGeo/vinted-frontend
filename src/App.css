@@ -234,3 +234,16 @@ label {
   line-height: 20px;
   text-align: justify;
 }
+
+.publishBackground {
+  background-color: #ebedee;
+}
+
+.publishContainer {
+  flex-direction: column;
+  margin-top: 45px;
+}
+
+.publishContainer section {
+  border: 1px black solid;
+}

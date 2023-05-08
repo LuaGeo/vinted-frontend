@@ -40,7 +40,7 @@ const Header = ({ logo, handleToken, token, search, setSearch }) => {
           )}
 
           {token ? (
-            <Link to="/upload">
+            <Link to="/publish">
               <button className="sellButton">Vends tes articles</button>
             </Link>
           ) : (

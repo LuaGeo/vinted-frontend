@@ -15,7 +15,7 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Upload from "./pages/Upload";
+import Publish from "./pages/Publish";
 
 // imgs //
 import logo from "./assets/imgs/logo1.svg";
@@ -86,7 +86,7 @@ function App() {
         <Route path="/offer/:id" element={<Offer data={data} />} />
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
-        <Route path="/upload" element={<Upload />} />
+        <Route path="/publish" element={<Publish token={token} />} />
       </Routes>
     </Router>
   );
