@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 //import cookies ici
 
-const Header = ({ logo, handleToken, token, search, setSearch }) => {
+const Header = ({ logo, handleUserData, token, search, setSearch }) => {
   const navigate = useNavigate();
   return (
     <header>
@@ -24,7 +24,7 @@ const Header = ({ logo, handleToken, token, search, setSearch }) => {
           {token ? (
             <button
               onClick={() => {
-                handleToken(null);
+                handleUserData(null);
                 navigate("/"); //comment ça marche?
               }}
             >
