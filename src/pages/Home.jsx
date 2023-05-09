@@ -10,6 +10,10 @@ const Home = ({ hero, data, ripHero }) => {
           alt="couple qui range des vêtements sur un lit"
         />
         <img className="ripHero" src={ripHero} alt="partie de photo déchirée" />
+        <div>
+          <h1>Prêts à faire du tri dans vos placards?</h1>
+          <button>Commencer à vendre</button>
+        </div>
       </div>
       <main>
         <div className="offersContainer container">
