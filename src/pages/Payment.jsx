@@ -33,8 +33,8 @@ const Payment = () => {
           amount: price,
         }
       );
-      console.log(responseFromBackend.data);
-      if (responseFromBackend.data === "succeeded") {
+      console.log(responseFromBackend.data.status);
+      if (responseFromBackend.data.status === "succeeded") {
         setIsLoading(false);
         setCompleted(true);
       }
