@@ -49,7 +49,7 @@ const Header = ({ logo, handleToken, token, search, setSearch }) => {
           ) : (
             <Link to="/login">
               <button className="sellButton">Vends tes articles</button>
-            </Link>
+            </Link> // refaire dans une ligne
           )}
         </div>
       </div>

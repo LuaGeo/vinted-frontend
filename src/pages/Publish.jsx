@@ -1,6 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import React, { useCallback } from "react";
+import { useDropzone } from "react-dropzone";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
@@ -44,22 +46,43 @@ const Publish = ({ token }) => {
       console.log(error.message);
     }
   };
-  return (
+
+  //DROPZONE FONCTION //
+  function MyDropzone() {
+    const onDrop = useCallback((acceptedFiles) => {
+      // Do something with the files
+    }, []);
+    const { getRootProps, getInputProps, isDragActive } = useDropzone({
+      onDrop,
+    });
+
+    return (
+      <div {...getRootProps()}>
+        <input
+          onChange={(event) => {
+            // createObjectURL(event.target.files[0]);
+            setPicture(event.target.files[0]);
+          }}
+          {...getInputProps()}
+        />
+        {isDragActive ? (
+          <p>Drop the files here ...</p>
+        ) : (
+          <p>Drag 'n' drop some files here, or click to select files</p>
+        )}
+      </div>
+    );
+  }
+
+  //////////////
+
+  return token ? (
     <div className="publishBackground">
       <div className="container publishContainer">
         <h2>Vends ton article</h2>
         <form onSubmit={handleSubmitNewArticle}>
           <div className="publishPictureContainer">
-            <label className="inputFile">
-              <input
-                type="file"
-                onChange={(event) => {
-                  // createObjectURL(event.target.files[0]);
-                  setPicture(event.target.files[0]);
-                }}
-              />
-              + Ajoute une photo
-            </label>
+            <label className="inputFile">{MyDropzone()}</label>
           </div>
 
           <section>
@@ -170,6 +193,8 @@ const Publish = ({ token }) => {
         </form>
       </div>
     </div>
+  ) : (
+    navigate("/login")
   );
 };
 export default Publish;
