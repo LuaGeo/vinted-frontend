@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Login = ({ handleToken }) => {
+const Login = ({ handleUserData }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,7 +23,10 @@ const Login = ({ handleToken }) => {
             }
           );
           if (response.data.token) {
-            handleToken(response.data.token);
+            handleUserData({
+              token: response.data.token,
+              userId: response.data._id,
+            });
             console.log(response.data._id);
             navigate("/publish");
           }

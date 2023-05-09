@@ -33,18 +33,24 @@ function App() {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const [token, setToken] = useState(Cookies.get("vinted-token") || null);
+  const [userId, setUserId] = useState(Cookies.get("vinted-user-id") || null);
 
   const [offers, setOffers] = useState([]);
 
   const [search, setSearch] = useState("");
 
-  const handleToken = (token) => {
-    if (token) {
+  const handleUserData = (userData) => {
+    if (userData && userData.token && userData.userId) {
+      const { token, userId } = userData;
       setToken(token);
+      setUserId(userId);
       Cookies.set("vinted-token", token, { expires: 7 });
+      Cookies.set("vinted-user-id", userId, { expires: 7 });
     } else {
-      setToken(null); // pk?
+      setToken(null);
+      setUserId(null);
       Cookies.remove("vinted-token");
+      Cookies.remove("vinted-user-id");
     }
   };
 
@@ -72,7 +78,7 @@ function App() {
     <Router>
       <Header
         logo={logo}
-        handleToken={handleToken}
+        handleUserData={handleUserData}
         token={token}
         search={search}
         setSearch={setSearch}
@@ -91,14 +97,20 @@ function App() {
           }
         />
         <Route path="/offer/:id" element={<Offer data={data} />} />
-        <Route path="/signup" element={<Signup handleToken={handleToken} />} />
-        <Route path="/login" element={<Login handleToken={handleToken} />} />
+        <Route
+          path="/signup"
+          element={<Signup handleUserData={handleUserData} />}
+        />
+        <Route
+          path="/login"
+          element={<Login handleUserData={handleUserData} />}
+        />
         <Route path="/publish" element={<Publish token={token} />} />
         <Route
           path="/payment"
           element={
             <Elements stripe={stripePromise}>
-              <Payment />
+              <Payment userId={userId} />
             </Elements>
           }
         />

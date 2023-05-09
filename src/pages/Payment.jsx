@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
 
-const Payment = () => {
+const Payment = ({ userId }) => {
   const location = useLocation();
   const { title } = location.state;
   const { price } = location.state;
@@ -20,7 +20,7 @@ const Payment = () => {
       setIsLoading(true);
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: `${name}`,
+        name: userId,
       });
       console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;

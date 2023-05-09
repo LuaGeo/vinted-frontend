@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signup = ({ handleToken }) => {
+const Signup = ({ handleUserId }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -26,10 +26,9 @@ const Signup = ({ handleToken }) => {
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
         formData
       );
-      if (response.data.token) {
+      if (response.data) {
         console.log(response.data.token);
-        //save token here
-        handleToken(response.data.token);
+        handleUserId({ token: response.data.token, userId: response.data._id });
         navigate("/");
       }
     } catch (error) {
