@@ -41,6 +41,7 @@ const Publish = ({ token }) => {
           },
         }
       );
+      console.log(response.data);
       navigate("/");
     } catch (error) {
       console.log(error.message);

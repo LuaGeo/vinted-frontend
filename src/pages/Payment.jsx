@@ -20,7 +20,7 @@ const Payment = () => {
       setIsLoading(true);
       const cardElement = elements.getElement(CardElement);
       const stripeResponse = await stripe.createToken(cardElement, {
-        name: name,
+        name: `${name}`,
       });
       console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
