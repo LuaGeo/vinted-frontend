@@ -7,7 +7,6 @@ const Payment = ({ userId }) => {
   const location = useLocation();
   const { title } = location.state;
   const { price } = location.state;
-  const { name } = location.state;
   const [isLoading, setIsLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
