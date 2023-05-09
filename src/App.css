@@ -408,10 +408,23 @@ input[type="file"] {
 .paymentBackground {
   height: 100vh;
   background-color: #ebedee;
+  padding: 40px;
 }
 
 .paymentBackground form {
   width: 43%;
   margin: 0 auto;
   background-color: #fff;
+  padding: 10px;
+}
+
+.paymentBackground form > div > div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.paymentBackground form > div {
+  margin-top: 10px;
+  margin-bottom: 40px;
+  border-bottom: #ebedee 1px solid;
 }

@@ -7,6 +7,7 @@ const Payment = () => {
   const location = useLocation();
   const { title } = location.state;
   const { price } = location.state;
+  const { name } = location.state;
   const [isLoading, setIsLoading] = useState(false);
   const [completed, setCompleted] = useState(false);
 
@@ -17,9 +18,9 @@ const Payment = () => {
     event.preventDefault();
     try {
       setIsLoading(true);
-      const CardElement = elements.getElement(CardElement);
-      const stripeResponse = await stripe.createToken(CardElement, {
-        name: stripeResponse.token.id,
+      const cardElement = elements.getElement(CardElement);
+      const stripeResponse = await stripe.createToken(cardElement, {
+        name: name,
       });
       console.log(stripeResponse);
       const stripeToken = stripeResponse.token.id;
@@ -45,8 +46,20 @@ const Payment = () => {
   return (
     <div className="paymentBackground">
       <form onSubmit={handlePaymentSubmit}>
-        <h1>Formulaire de paiement</h1>
-        <p>Commande: {price}</p>
+        <p>Résumé de la commande</p>
+        <div>
+          <div>
+            <h4>Commande</h4>
+            <h4>{price} €</h4>
+          </div>
+          <div>
+            <h4>Frais protection acheteurs</h4> <h4> 0,40 €</h4>
+          </div>
+          <div>
+            <h4>Frais de port</h4>
+            <h4>0,80 €</h4>
+          </div>
+        </div>
         <CardElement />
         {completed ? (
           <p>Paiement validé</p>
