@@ -35,7 +35,7 @@ const Offer = () => {
         />
         <div>
           <div className="offerInfosContainer">
-            <h2>{offer.product_price} €</h2>
+            <h2>{offer.product_price.toFixed(2)} €</h2>
             <div>
               <ul>
                 {offer.product_details.map((detail, index) => {

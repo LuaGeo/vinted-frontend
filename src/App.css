@@ -152,7 +152,7 @@ h4 {
 .offerContainer > img {
   width: 454px;
   height: 605px;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
@@ -409,13 +409,15 @@ input[type="file"] {
   height: 100vh;
   background-color: #ebedee;
   padding: 40px;
+  font-family: "Maison Neue", sans-serif;
 }
 
 .paymentBackground form {
   width: 43%;
   margin: 0 auto;
   background-color: #fff;
-  padding: 10px;
+  padding: 30px;
+  box-sizing: border-box;
 }
 
 .paymentBackground form > div > div {
@@ -423,8 +425,37 @@ input[type="file"] {
   justify-content: space-between;
 }
 
-.paymentBackground form > div {
-  margin-top: 10px;
-  margin-bottom: 40px;
+.resumePayment {
+  margin-top: 20px;
   border-bottom: #ebedee 1px solid;
+  padding-bottom: 70px;
+}
+
+.totalPayment {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.bolded {
+  font-weight: bold;
+}
+
+.messageBeforePayment {
+  margin-bottom: 70px;
+}
+
+.paymentBackground button {
+  margin-top: 30px;
+  height: 40px;
+  width: 100%;
+  color: #fff;
+  background-color: #007580;
+}
+
+.validateMessage {
+  margin-top: 30px;
+  color: #666;
 }
