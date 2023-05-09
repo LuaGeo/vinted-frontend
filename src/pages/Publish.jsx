@@ -50,12 +50,16 @@ const Publish = ({ token }) => {
         <h2>Vends ton article</h2>
         <form onSubmit={handleSubmitNewArticle}>
           <div className="publishPictureContainer">
-            <input
-              type="file"
-              onChange={(event) => {
-                setPicture(event.target.files[0]);
-              }}
-            />
+            <label className="inputFile">
+              <input
+                type="file"
+                onChange={(event) => {
+                  // createObjectURL(event.target.files[0]);
+                  setPicture(event.target.files[0]);
+                }}
+              />
+              + Ajoute une photo
+            </label>
           </div>
 
           <section>

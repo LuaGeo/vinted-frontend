@@ -8,16 +8,23 @@ const Signup = ({ handleToken }) => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsLetter] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const [avatar, setAvatar] = useState();
 
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    let infos = { email, username, password, newsletter };
+    // let infos = { email, username, password, newsletter, avatar };
     try {
+      const formData = new FormData();
+      formData.append("email", email);
+      formData.append("username", username);
+      formData.append("password", password);
+      formData.append("newletter", newsletter);
+      formData.append("avatar", avatar);
       const response = await axios.post(
         "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-        infos
+        formData
       );
       if (response.data.token) {
         console.log(response.data.token);
@@ -40,12 +47,19 @@ const Signup = ({ handleToken }) => {
     }
   };
 
-  //mettre le try catch de register ici et ajouter handlesubmit dans la balise form (au lieu de dans le button)
-
   return (
     <div>
       <form className="container formContainer" onSubmit={handleSubmit}>
         <h2>S'inscrire</h2>
+        <label className="inputFile">
+          <input
+            type="file"
+            onChange={(event) => {
+              setAvatar(event.target.files[0]);
+            }}
+          />
+          Ajoute votre avatar
+        </label>
         <input
           onChange={(event) => setUsername(event.target.value)}
           type="text"

@@ -319,6 +319,23 @@ label {
   margin-bottom: 27px;
 }
 
+input[type="file"] {
+  display: none;
+}
+
+.inputFile {
+  border: #007580 2px solid;
+  color: #007580;
+  height: 40px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
 .publishContainer form {
   display: flex;
   flex-direction: column;
