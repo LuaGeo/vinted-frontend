@@ -402,3 +402,16 @@ input[type="file"] {
   border-style: none;
   border-radius: 5px;
 }
+
+/* ---Payment page--- */
+
+.paymentBackground {
+  height: 100vh;
+  background-color: #ebedee;
+}
+
+.paymentBackground form {
+  width: 43%;
+  margin: 0 auto;
+  background-color: #fff;
+}

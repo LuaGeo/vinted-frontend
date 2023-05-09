@@ -43,18 +43,20 @@ const Payment = () => {
   };
 
   return (
-    <form onSubmit={handlePaymentSubmit}>
-      <h1>Formulaire de paiement</h1>
-      <p>Commande: {price}</p>
-      <CardElement />
-      {completed ? (
-        <p>Paiement validé</p>
-      ) : (
-        <button type="submit" disabled={isLoading}>
-          Pay
-        </button>
-      )}
-    </form>
+    <div className="paymentBackground">
+      <form onSubmit={handlePaymentSubmit}>
+        <h1>Formulaire de paiement</h1>
+        <p>Commande: {price}</p>
+        <CardElement />
+        {completed ? (
+          <p>Paiement validé</p>
+        ) : (
+          <button type="submit" disabled={isLoading}>
+            Pay
+          </button>
+        )}
+      </form>
+    </div>
   );
 };
 
