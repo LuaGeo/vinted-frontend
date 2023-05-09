@@ -2,7 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signup = ({ handleUserId }) => {
+const Signup = ({ handleUserData }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -28,7 +28,10 @@ const Signup = ({ handleUserId }) => {
       );
       if (response.data) {
         console.log(response.data.token);
-        handleUserId({ token: response.data.token, userId: response.data._id });
+        handleUserData({
+          token: response.data.token,
+          userId: response.data._id,
+        });
         navigate("/");
       }
     } catch (error) {
