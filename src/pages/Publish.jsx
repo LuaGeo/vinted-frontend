@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import React, { useCallback } from "react";
-import { useDropzone } from "react-dropzone";
+// import React, { useCallback } from "react";
+// import { useDropzone } from "react-dropzone";
 
 const Publish = ({ token }) => {
   const [picture, setPicture] = useState();
@@ -48,31 +48,37 @@ const Publish = ({ token }) => {
   };
 
   //DROPZONE FONCTION //
-  function MyDropzone() {
-    const onDrop = useCallback((acceptedFiles) => {
-      // Do something with the files
-    }, []);
-    const { getRootProps, getInputProps, isDragActive } = useDropzone({
-      onDrop,
-    });
 
-    return (
-      <div {...getRootProps()}>
-        <input
-          onChange={(event) => {
-            // createObjectURL(event.target.files[0]);
-            setPicture(event.target.files[0]);
-          }}
-          {...getInputProps()}
-        />
-        {isDragActive ? (
-          <p>Drop the files here ...</p>
-        ) : (
-          <p>Drag 'n' drop some files here, or click to select files</p>
-        )}
-      </div>
-    );
-  }
+  // function MyDropzone() {
+  //   const onDrop = useCallback((acceptedFiles: File[]) => {
+  //     acceptedFiles.forEach((file) => {
+  //       const reader = new FileReader();
+  //     }); // à verifier
+  //   }, []);
+  //   const { getRootProps, getInputProps, isDragActive } = useDropzone({
+  //     onDrop,
+  //   });
+
+  //   return (
+  //     <div {...getRootProps()}>
+  //       <input
+  //         onChange={(event) => {
+  //           // createObjectURL(event.target.files[0]) (dehors l'input)
+  //           setPicture(event.target.files[0]);
+  //         }}
+  //         {...getInputProps()}
+  //       />
+  //       {picture && (
+  //         <img src={URL.createObjectURL(picture)} alt="image preview" />
+  //       )}
+  //       {isDragActive ? (
+  //         <p>Drop the files here ...</p>
+  //       ) : (
+  //         <p>Drag 'n' drop some files here, or click to select files</p>
+  //       )}
+  //     </div>
+  //   );
+  // }
 
   //////////////
 
@@ -82,7 +88,25 @@ const Publish = ({ token }) => {
         <h2>Vends ton article</h2>
         <form onSubmit={handleSubmitNewArticle}>
           <div className="publishPictureContainer">
-            <label className="inputFile">{MyDropzone()}</label>
+            <label className="inputFile">
+              <input
+                type="file"
+                onChange={(event) => {
+                  // createObjectURL(event.target.files[0]) (dehors l'input)
+                  setPicture(event.target.files[0]);
+                }}
+              />
+              + Ajouter une image
+            </label>
+            {picture && (
+              <div className="previewImageContainer">
+                <img
+                  className="previewImage"
+                  src={URL.createObjectURL(picture)}
+                  alt="product preview image"
+                />
+              </div>
+            )}
           </div>
 
           <section>

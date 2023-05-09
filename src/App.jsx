@@ -3,6 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 
 //import cookies ici
 
@@ -16,11 +18,16 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 
 // imgs //
 import logo from "./assets/imgs/logo1.svg";
 import hero from "./assets/imgs/banner-hero.jpg";
 import ripHero from "./assets/imgs/rip-hero.svg";
+
+const stripePromise = loadStripe(
+  "pk_test_51HCObyDVswqktOkX6VVcoA7V2sjOJCUB4FBt3EOiAdSz5vWudpWxwcSY8z2feWXBq6lwMgAb5IVZZ1p84ntLq03H00LDVc2RwP"
+);
 
 function App() {
   const [data, setData] = useState({});
@@ -87,6 +94,14 @@ function App() {
         <Route path="/signup" element={<Signup handleToken={handleToken} />} />
         <Route path="/login" element={<Login handleToken={handleToken} />} />
         <Route path="/publish" element={<Publish token={token} />} />
+        <Route
+          path="/payment"
+          element={
+            <Elements stripe={stripePromise}>
+              <Payment />
+            </Elements>
+          }
+        />
       </Routes>
     </Router>
   );

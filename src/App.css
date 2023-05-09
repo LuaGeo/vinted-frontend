@@ -336,6 +336,17 @@ input[type="file"] {
   cursor: pointer;
 }
 
+.previewImageContainer {
+  height: 250px;
+  width: 250px;
+}
+
+.publishContainer form .previewImage {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
 .publishContainer form {
   display: flex;
   flex-direction: column;
